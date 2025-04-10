@@ -1,0 +1,35 @@
+{
+    "experiment": {
+        "name": "baseline",
+        "description": "Initial speech enhancement experiment with phase-aware loss"
+    },
+    "data": {
+        "sample_rate": 16000,
+        "clean_dir": "data/clean",
+        "noisy_dir": "data/noisy",
+        "test_dir": "data/test",
+        "val_split": 0.1
+    },
+    "preprocessing": {
+        "n_fft": 512,
+        "hop_length": 128,
+        "win_length": 512,
+        "window": "hann"
+    },
+    "model": {
+        "n_channels": 64,
+        "n_layers": 4,
+        "kernel_size": 3,
+        "use_batch_norm": true,
+        "dropout": 0.1
+    },
+    "training": {
+        "batch_size": 32,
+        "epochs": 100,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0001,
+        "phase_loss_weight": 0.3,
+        "checkpoint_dir": "experiments/checkpoints",
+        "tensorboard_dir": "experiments/tensorboard"
+    }
+}
